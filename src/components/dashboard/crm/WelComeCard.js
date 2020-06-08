@@ -9,10 +9,7 @@ const WelComeCard = (props) => {
       <h1 className="gx-mb-3">{props.authUser.data.firstname}</h1>
       <p className="gx-fs-sm gx-text-uppercase">{props.authUser.data.company}</p>
       <ul className="gx-list-group">
-        <li>
-          <Icon type="message"/>
-          <span>5 Unread messages</span>
-        </li>
+      
         <li>
           <Icon type="mail"/>
           <span>2 Pending invitations</span>
@@ -22,7 +19,7 @@ const WelComeCard = (props) => {
           <span>7 Due payment</span>
         </li>
         <li>
-          <Icon type="cart"/>
+          <Icon type="profile"/>
           <span>3 Reviews</span>
         </li>
       </ul>

@@ -75,7 +75,7 @@ class CRM extends Component {
               <Widget>
                 <RecentActivity recentList={recentActivity} shape="circle" />
               </Widget>
-              <CurrencyCalculator />
+             
             </Col>
 
             <Col xl={16} lg={24} md={24} sm={24} xs={24} className="gx-order-sm-1">
@@ -100,9 +100,7 @@ class CRM extends Component {
                     <IconWithTextCard cardColor="red" icon="solution" title={consumer.review} subTitle={consumer.review > 1 ? "Reviews" : "Review"} />
                   </Link>
                 </Col>
-                <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-                  <TaskList taskList={taskList} />
-                </Col>
+               
                 <Col xl={16} lg={16} md={16} sm={24} xs={24}>
                   <TicketList />
                 </Col>

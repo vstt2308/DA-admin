@@ -1,5 +1,5 @@
 const config = {
-    API_URL: 'https://app.gopanda.asia/api/',
+    API_URL: 'http://localhost:8080/t_travelapi',
     URL_ASSET: 'https://app.gopanda.asia/public'
 };
 
