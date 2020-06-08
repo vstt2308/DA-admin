@@ -176,8 +176,8 @@ class Header extends Component {
 								</Tooltip>
 							</li>
 						} */}
-              {this.renderMessage()}
-              <Notifications />
+              {/* {this.renderMessage()} */}
+              {/* <Notifications /> */}
               {/* <li className="list-inline-item setting-icon">
 							<Tooltip title="Chat" placement="bottom">
 								<IconButton aria-label="settings" onClick={() => this.setState({ customizer: true })}>
