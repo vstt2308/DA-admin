@@ -393,7 +393,7 @@ class ListRegistered extends Component {
                 isDisabled={!hasSelected}
                 rows={this.state.selectedRowKeys}
                 table="customer"
-                isShowPublishButtons={true}
+                isShowPublishButtons={false}
                 showFilter={false}
                 onFilter={this.filter}
               >

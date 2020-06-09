@@ -19,7 +19,7 @@ export const getAllDestination = (filter = {}, paginate = true) => dispatch => {
           return qs.stringify(params, { arrayFormat: "repeat" });
         }
       })
-      .then(res => {
+      .then(res => {   
         resolve(res.data);
         if (paginate) {
           dispatch({ type: GET_ALL_DESTINATION, payload: res.data.data });

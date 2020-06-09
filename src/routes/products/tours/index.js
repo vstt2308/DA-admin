@@ -27,7 +27,7 @@ import ImageInTable from "../../../components/ImageInTable";
 import FlightSearch from "./FlightSearch";
 import TourAirlines from "./TourAirlines";
 import TourFlight from "./TourFlight";
-const MEDIA_URL = config.URL_ASSET;
+const {URL_ASSET} = config;
 
 class ListTour extends Component {
   constructor(props) {
@@ -322,7 +322,7 @@ class ListTour extends Component {
         render: (text, record) => (
           <div className="image_logo">
             <ImageInTable
-              src={record.thumb}
+              src={URL_ASSET + record.image}
               alt={`${record.flag}_logo`}
             ></ImageInTable>
           </div>
@@ -513,7 +513,7 @@ class ListTour extends Component {
                   isDisabled={!hasSelected}
                   rows={this.state.selectedRowKeys}
                   table="tour"
-                  isShowPublishButtons={true}
+                  isShowPublishButtons={false}
                   onFilter={this.filter}
                 >
                   {hasSelected ? (

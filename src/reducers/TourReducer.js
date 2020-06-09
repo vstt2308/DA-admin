@@ -97,8 +97,15 @@ export default (state = INIT_STATE, action) => {
       };
     }
     case ADD_A_TOUR: {
-      let newLists = [action.payload, ...state.listTour];
-      return { ...state, listTour: newLists };
+      console.log('ngu',action.payload);
+      
+      state.listTour.unshift(action.payload);
+      let newList = [...state.listTour];
+      return {
+        ...state,
+        listTour: newList
+      };
+    
     }
     case GET_TOUR_RATES: {
       return { ...state, listRates: action.payload };

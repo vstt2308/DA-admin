@@ -179,18 +179,8 @@ class TourOrder extends Component {
                 {record.order_number}
               </p>
             </div>
-            <Tag
-              style={{ marginBottom: "0px", cursor: "pointer" }}
-              color="green"
-            >
-              <Link
-                style={{ color: "green" }}
-                to={`/app/vouchers/${record.id}`}
-              >
-                Voucher
-              </Link>
-            </Tag>
-          </React.Fragment>
+              
+              </React.Fragment>
         ),
         sorter: true,
       },

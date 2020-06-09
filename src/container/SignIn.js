@@ -87,7 +87,7 @@ class Login extends Component {
                         <div className="col-md-8">
                            <div className="session-body text-center">
                               <div className="session-head mb-30" align="center">
-                                 <img src={SIGNIN_IMAGE_URL} alt="signin logo" style={{ height: "40px" }} />
+                                 <img src={require('../Assets/img/logo_login.png')} alt="signin logo" style={{ height: "40px" }} />
                               </div>
                               <Form  {...formItemLayout} onSubmit={this.handleSubmit} className="login-form">
                                  <Form.Item>
@@ -126,7 +126,7 @@ class Login extends Component {
                            <div className="row h-300">
                               <div className="col  my-auto">
                                  <div className=" w-500">
-                                    <h1 className="display-3 text-white font-weight-bold text-center">GoPanda </h1>
+                                    <h1 className="display-3 text-white font-weight-bold text-center">T-Travel </h1>
                                     <h1 className=" text-white font-weight-bold text-center"> Discover a different world </h1>
                                  </div>
                               </div>

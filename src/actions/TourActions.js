@@ -29,7 +29,7 @@ export const getAllTour = (filter = {}, paginate = true) => (dispatch) => {
           return qs.stringify(params, { arrayFormat: "repeat" });
         },
       })
-      .then((res) => {
+      .then((res) => {   
         resolve(res.data);
         if (paginate) {
           dispatch({ type: GET_ALL_TOUR, payload: res.data.data });
@@ -66,18 +66,24 @@ export const getAllProduct = (filter = {}) => (dispatch) => {
   });
 };
 
-export const createTour = (destination) => (dispatch) => {
+export const createTour = (tour) => (dispatch) => {
+console.log('data',tour);
+
   return new Promise((resolve, reject) => {
     api
-      .post("/tour/save", destination)
+      .post("/tour/save", tour)
       .then((res) => {
+        console.log('res',res.data);
+        
         dispatch({ type: ADD_A_TOUR, payload: res.data.data });
         NotificationManager.success(res.data.msg);
         resolve(res.data);
       })
       .catch((error) => {
-        reject(error.response.data);
-        NotificationManager.error(error.response.data.msg);
+        console.log('error',error);
+        
+        reject(error.response);
+        NotificationManager.error(error.response);
       });
   });
 };

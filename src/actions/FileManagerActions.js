@@ -5,7 +5,7 @@ import {
     UPLOAD_IMG,
     DELETE_FOLDER_FILE
 } from './types';
-import api from '../api';
+import api from '../api/apiServer';
 import { NotificationManager } from 'react-notifications';
 
 export const getAll = (filter = "", currentfolder) => dispatch => {

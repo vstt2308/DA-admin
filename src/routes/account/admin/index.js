@@ -347,7 +347,7 @@ class ListAdmin extends Component {
                 isDisabled={!hasSelected}
                 rows={this.state.selectedRowKeys}
                 table="customer"
-                isShowPublishButtons={true}
+                isShowPublishButtons={false}
                 onFilter={this.filter}
               >
                 <span style={{ marginLeft: 8 }}>

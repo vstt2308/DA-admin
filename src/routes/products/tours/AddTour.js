@@ -146,6 +146,7 @@ class AddTour extends Component {
       if (!err) {
         values.gallery = this.state.gallery;
         values.image = this.state.image;
+        values.cat_ids= ['40']
         if (this.props.item) {
           values.id = this.props.item;
         }
@@ -294,7 +295,7 @@ class AddTour extends Component {
                       />
                     )}
                   </Form.Item>
-                  <Form.Item label={<IntlMessages id="tour.supplier" />}>
+                  {/* <Form.Item label={<IntlMessages id="tour.supplier" />}>
                     {getFieldDecorator("cid", {
                       rules: [
                         {
@@ -310,12 +311,12 @@ class AddTour extends Component {
                         selected={currentTour ? parseInt(currentTour.cid) : ""}
                       />
                     )}
-                  </Form.Item>
-                  <Form.Item label={<IntlMessages id="global.category" />}>
+                  </Form.Item> */}
+                  {/* <Form.Item label={<IntlMessages id="global.category" />}>
                     {getFieldDecorator("cat_ids", {
                       initialValue: category_ids,
                     })(<BaseSelect mode="multiple" options={categories} />)}
-                  </Form.Item>
+                  </Form.Item> */}
                   <Form.Item label={<IntlMessages id="global.days" />}>
                     <Row gutter={8}>
                       <Col span={12}>
