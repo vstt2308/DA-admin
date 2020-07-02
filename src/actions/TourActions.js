@@ -74,8 +74,8 @@ console.log('data',tour);
       .post("/tour/save", tour)
       .then((res) => {
         console.log('res',res.data);
-        
-        dispatch({ type: ADD_A_TOUR, payload: res.data.data });
+       
+        dispatch({ type: ADD_A_TOUR, payload: res.data });
         NotificationManager.success(res.data.msg);
         resolve(res.data);
       })

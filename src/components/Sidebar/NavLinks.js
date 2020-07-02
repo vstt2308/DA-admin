@@ -88,7 +88,16 @@ export default {
       ]
     }
   ],
-
+  // category6: [
+  //   {
+  //     menu_title: "sidebar.widgets",
+  //     menu_icon: "zmdi zmdi-widgets",
+  //     new_item: false,
+  //     type_multi: null,
+  //     child_routes: null,
+  //     path: "/app/widgets",
+  //   },
+  // ],
 
 
   

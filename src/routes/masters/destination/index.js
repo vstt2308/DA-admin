@@ -174,6 +174,7 @@ class ListDestination extends Component {
         })
     }
     filter = (value, name, type) => {
+       
         if (type === "search") {
             this.setState({
                 ...this.state,

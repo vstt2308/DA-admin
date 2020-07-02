@@ -312,18 +312,18 @@ class ListRegistered extends Component {
         sorter: true
       },
 
-      {
-        title: <IntlMessages id="global.country" />,
-        dataIndex: "country_code",
-        className: "center-column",
-        render: (text, record) => (
-          <React.Fragment>
-            <div>{record.country_code}</div>
-            <div>{record.ip_address}</div>
-          </React.Fragment>
-        ),
-        sorter: true
-      },
+      // {
+      //   title: <IntlMessages id="global.country" />,
+      //   dataIndex: "country_code",
+      //   className: "center-column",
+      //   render: (text, record) => (
+      //     <React.Fragment>
+      //       <div>{record.country_code}</div>
+      //       <div>{record.ip_address}</div>
+      //     </React.Fragment>
+      //   ),
+      //   sorter: true
+      // },
       {
         title: <IntlMessages id="global.created" />,
         dataIndex: "created_at",
@@ -337,43 +337,9 @@ class ListRegistered extends Component {
         ),
         sorter: true
       },
-      {
-        title: <IntlMessages id="global.lastlogin" />,
-        dataIndex: "last_login",
-        key: "last_login",
-        className: "center-column",
-        render: (text, record) =>
-          record.last_login ? (
-            <React.Fragment>
-              <div>{moment(record.last_login).format("DD/MM/YYYY")}</div>
-              <div>{moment(record.last_login).format("HH:mm")}</div>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <div>{moment(record.updated_at).format("DD/MM/YYYY")}</div>
-              <div>{moment(record.updated_at).format("HH:mm")}</div>
-            </React.Fragment>
-          )
-      },
-      {
-        title: <IntlMessages id="global.referral_os" />,
-        dataIndex: "referral_os",
-        className: "center-column",
-        render: (text, record) =>
-          record.referral_os === "android" ? (
-            <AndroidIcon style={{ color: "rgb(128, 228, 26)" }} />
-          ) : record.referral_os === "ios" ? (
-            <AppleIcon />
-          ) : (
-            <LanguageIcon style={{ color: "rgb(15, 167, 217)" }} />
-          )
-      },
-      {
-        title: <IntlMessages id="global.id" />,
-        dataIndex: "id",
-        key: "id",
-        sorter: true
-      }
+  
+    
+    
     ];
 
     const { listRegistered, paging, country } = this.props;
@@ -420,7 +386,7 @@ class ListRegistered extends Component {
                   showSizeChanger: true
                 }}
                 onChange={this.onChangeTable}
-                scroll={{ x: 1500 }}
+             
               />
             </RctCollapsibleCard>
           </div>

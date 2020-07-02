@@ -409,7 +409,7 @@ class AddDestination extends Component {
                       defautValue={dedfaultImage}
                     ></InputChosseFile>
                   </Form.Item>
-                  <Form.Item label={<IntlMessages id="global.location" />}>
+                  {/* <Form.Item label={<IntlMessages id="global.location" />}>
                     {edit ? (
                       <CustomPlacesAutoComplete
                         address={this.state.address}
@@ -424,7 +424,7 @@ class AddDestination extends Component {
                           onChange={this.onSetLocation}
                         ></CustomPlacesAutoComplete>
                       )}
-                  </Form.Item>
+                  </Form.Item> */}
                 </TabPane>
                 <TabPane tab={<IntlMessages id="destination.intro" />} key="2">
                   <Form.Item {...formDesc}>
@@ -458,7 +458,7 @@ class AddDestination extends Component {
                     )}
                   </Form.Item>
                 </TabPane>
-                <TabPane tab={<IntlMessages id="destination.best_time_travel" />} key="4">
+                {/* <TabPane tab={<IntlMessages id="destination.best_time_travel" />} key="4">
                   <Form.Item {...formDesc}>
                     {getFieldDecorator("best_time_travel", {
                       initialValue: destination ? destination.best_time_travel || "" : ""
@@ -472,7 +472,7 @@ class AddDestination extends Component {
                       />
                     )}
                   </Form.Item>
-                </TabPane>
+                </TabPane> */}
                 <TabPane tab={<IntlMessages id="global.gallery" />} key="5">
                   <Form.Item {...formDesc}>
                     <InputChosseFile

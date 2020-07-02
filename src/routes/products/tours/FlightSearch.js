@@ -350,11 +350,11 @@ class FlightSearch extends Component {
                                                     style={{ width: '100%' }}
                                                 />
                                             </Col>
-                                            <Col xs={24} sm={12} md={4}>
+                                            {/* <Col xs={24} sm={12} md={4}>
                                                 <Checkbox onChange={(e) => this.onChangeFilter('direct', e.target.checked)}>
                                                     Direct flights?
                                                 </Checkbox>
-                                            </Col>
+                                            </Col> */}
                                             <Col xs={24} sm={12} md={3}>
                                                 <Button type="primary" icon="search" onClick={() => this.onSearch()}>
                                                     {/* <IntlMessages id="widgets.search" /> */}
@@ -388,11 +388,11 @@ class FlightSearch extends Component {
                                                     style={{ width: '100%' }}
                                                 />
                                             </Col>
-                                            <Col xs={24} sm={12} md={4}>
+                                            {/* <Col xs={24} sm={12} md={4}>
                                                 <Checkbox onChange={(e) => this.onChangeFilter('direct', e.target.checked)}>
                                                     Direct flights?
                                                 </Checkbox>
-                                            </Col>
+                                            </Col> */}
                                             <Col xs={24} sm={12} md={3}>
                                                 <Button type="primary" icon="search" onClick={() => this.onSearch()}>
                                                     {/* <IntlMessages id="widgets.search" /> */}

@@ -353,12 +353,7 @@ class index extends Component {
         key: "tour_name",
         sorter: true,
       },
-      {
-        title: <IntlMessages id="review.created_by" />,
-        dataIndex: "created_by",
-        key: "created_by",
-        sorter: true,
-      },
+   
       {
         title: <IntlMessages id="global.status" />,
         key: "status",
@@ -391,11 +386,7 @@ class index extends Component {
             ""
           ),
       },
-      {
-        title: "ID",
-        dataIndex: "id",
-        sorter: true,
-      },
+    
     ];
 
     var listTourName = this.props.listProduct.map((item) => {
@@ -443,7 +434,7 @@ class index extends Component {
                 isShowPublishButtons={false}
                 rows={this.state.selectedRowKeys}
                 table="review"
-                onFilter={this.filter}
+                onSearch={false}
               >
                 {hasSelected ? (
                   <p className="ml-10" style={{ display: "inline-block" }}>
@@ -467,7 +458,7 @@ class index extends Component {
                 dataSource={listReview}
                 size="middle"
                 rowKey="id"
-                scroll={{ x: 1500 }}
+               
                 pagination={{
                   showSizeChanger: true,
                   pageSizeOptions: ["10", "20", "30"],

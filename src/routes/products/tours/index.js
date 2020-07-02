@@ -366,25 +366,15 @@ class ListTour extends Component {
           </b>
         ),
       },
-      {
-        title: "SKU",
-        dataIndex: "code",
-      },
+     
       {
         title: "Duration",
         dataIndex: "duration_txt",
         key: "days",
         sorter: true,
       },
-      {
-        title: "Price",
-        dataIndex: "min_price",
-        sorter: true,
-      },
-      {
-        title: "Market",
-        dataIndex: "country_txt",
-      },
+   
+    
       {
         title: "Departure",
         dataIndex: "",
@@ -418,33 +408,33 @@ class ListTour extends Component {
           </b>
         ),
       },
-      {
-        title: "Flight",
-        dataIndex: "",
-        render: (text, record) => (
-          <React.Fragment>
-            <Button
-              type="link"
-              style={{ color: "blue", margin: 0, padding: 0 }}
-              onClick={() =>
-                this.setState({ currentTour: record, isOpenFlightSearch: true })
-              }
-            >
-              Setup Flight
-            </Button>
-            <Divider type="vertical" />
-            <Button
-              type="link"
-              style={{ color: "blue", margin: 0, padding: 0 }}
-              onClick={() =>
-                this.setState({ currentTour: record, isOpenFlightList: true })
-              }
-            >
-              View Flights
-            </Button>
-          </React.Fragment>
-        ),
-      },
+      // {
+      //   title: "Flight",
+      //   dataIndex: "",
+      //   render: (text, record) => (
+      //     <React.Fragment>
+      //       <Button
+      //         type="link"
+      //         style={{ color: "blue", margin: 0, padding: 0 }}
+      //         onClick={() =>
+      //           this.setState({ currentTour: record, isOpenFlightSearch: true })
+      //         }
+      //       >
+      //         Setup Flight
+      //       </Button>
+      //       <Divider type="vertical" />
+      //       <Button
+      //         type="link"
+      //         style={{ color: "blue", margin: 0, padding: 0 }}
+      //         onClick={() =>
+      //           this.setState({ currentTour: record, isOpenFlightList: true })
+      //         }
+      //       >
+      //         View Flights
+      //       </Button>
+      //     </React.Fragment>
+      //   ),
+      // },
       {
         title: "Calendar",
         dataIndex: "",
@@ -455,12 +445,6 @@ class ListTour extends Component {
             </Link>
           </b>
         ),
-      },
-      {
-        title: "ID",
-        dataIndex: "id",
-        key: "id",
-        sorter: true,
       },
     ];
 

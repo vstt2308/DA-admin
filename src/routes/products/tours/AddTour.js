@@ -92,7 +92,7 @@ class AddTour extends Component {
 
   componentDidMount() {
     this.props.getAllCategory();
-    this.props.getAllCountry({ paging: false });
+    this.props.getAllCountry({ paging: 0 });
     this.props.getAllSupplier({}, "supplier");
   }
 
@@ -226,7 +226,7 @@ class AddTour extends Component {
                       initialValue: currentTour ? currentTour.title || "" : "",
                     })(<Input />)}
                   </Form.Item>
-                  <Row>
+                  {/* <Row>
                     <Col span={12}>
                       <Form.Item
                         label={<IntlMessages id="tour.alt_title" />}
@@ -257,8 +257,8 @@ class AddTour extends Component {
                         })(<Input />)}
                       </Form.Item>
                     </Col>
-                  </Row>
-                  <Form.Item label={<IntlMessages id="global.code" />}>
+                  </Row> */}
+                  {/* <Form.Item label={<IntlMessages id="global.code" />}>
                     <Row gutter={8}>
                       <Col span={12}>
                         <Form.Item {...inputCol}>
@@ -283,7 +283,7 @@ class AddTour extends Component {
                         </Form.Item>
                       </Col>
                     </Row>
-                  </Form.Item>
+                  </Form.Item> */}
                   <Form.Item label={<IntlMessages id="global.country" />}>
                     {getFieldDecorator("country_id", {
                       initialValue: currentTour ? currentTour.country_id : "",
@@ -292,6 +292,12 @@ class AddTour extends Component {
                         options={countries}
                         selected={currentTour ? currentTour.country_id : ""}
                         defaultText="Select one..."
+                        filterOption={(input, option) =>
+                          option.props.children
+                            .toLowerCase()
+                            .indexOf(input.toLowerCase()) >= 0
+                        }
+                        showSearch={true}
                       />
                     )}
                   </Form.Item>
@@ -352,7 +358,7 @@ class AddTour extends Component {
                       </Col>
                     </Row>
                   </Form.Item>
-                  <Form.Item label={<IntlMessages id="tour.price" />}>
+                  {/* <Form.Item label={<IntlMessages id="tour.price" />}>
                     {getFieldDecorator("min_price", {
                       rules: [
                         {
@@ -364,14 +370,14 @@ class AddTour extends Component {
                         ? currentTour.min_price || ""
                         : "",
                     })(<InputNumber style={{ width: "100%" }} />)}
-                  </Form.Item>
-                  <Form.Item label={<IntlMessages id="tour.cutofftime" />}>
+                  </Form.Item> */}
+                  {/* <Form.Item label={<IntlMessages id="tour.cutofftime" />}>
                     {getFieldDecorator("cutofftime", {
                       initialValue: currentTour
                         ? currentTour.cutofftime || ""
                         : "",
                     })(<Input />)}
-                  </Form.Item>
+                  </Form.Item> */}
                   <Form.Item label={<IntlMessages id="global.status" />}>
                     {getFieldDecorator("status", {
                       initialValue: currentTour

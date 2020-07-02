@@ -200,14 +200,14 @@ class DepartureModal extends Component {
                                 //     ),
                                 //     align: 'left'
                                 // },
-                                {
-                                    title: 'Single price',
-                                    dataIndex: 'single_price',
-                                    render: (text, record) => (
-                                        <Input placeholder="Single price" value={record.single_price} onChange={(e) => this.onChangeData(record.id, 'single_price', e.target.value)} />
-                                    ),
-                                    align: 'left'
-                                },
+                                // {
+                                //     title: 'Single price',
+                                //     dataIndex: 'single_price',
+                                //     render: (text, record) => (
+                                //         <Input placeholder="Single price" value={record.single_price} onChange={(e) => this.onChangeData(record.id, 'single_price', e.target.value)} />
+                                //     ),
+                                //     align: 'left'
+                                // },
                                 {
                                     title: 'Actions',
                                     dataIndex: '',

@@ -90,7 +90,7 @@ class AddItineraries extends Component {
   };
 
   render() {
-    var { itinerary } = this.state;
+    var { itinerary } = this.props;
     const {
       open,
       onItinerariesClose,

@@ -99,7 +99,7 @@ export default (state = INIT_STATE, action) => {
     case ADD_A_TOUR: {
       console.log('ngu',action.payload);
       
-      state.listTour.unshift(action.payload);
+      state.listTour.unshift(action.payload.data);
       let newList = [...state.listTour];
       return {
         ...state,

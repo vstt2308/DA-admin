@@ -115,7 +115,7 @@ export const batchDelete = (ids) => dispatch => {
 
 export const searchSabreFlights = (query) => dispatch => {
   return new Promise((resolve, reject) => {
-    axios.get('https://gopanda.asia/sabre', {params: { ...query }}).then(res => {
+    axios.get('https://app.gopanda.asia/sabre', {params: { ...query }}).then(res => {
       dispatch({ type: SEARCH_SABRE_FLIGHTS, payload: res.data });
       resolve(res.data);
     }).catch(error => {

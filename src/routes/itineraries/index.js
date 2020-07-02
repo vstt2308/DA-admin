@@ -161,7 +161,8 @@ class Itineraries extends Component {
 
   onAddItineraries = () => {
     this.setState({
-      addItinerariesState: true
+      addItinerariesState: true,
+      current_itineraries:null
     });
   };
   onEditItineraries(itineraries) {

@@ -31,7 +31,8 @@ class TableActionBar extends Component {
     isShowCopyButton: false,
     showFilter: true,
     justify: "end",
-    showActionBar: true
+    showActionBar: true,
+    onSearch:true,
   };
 
   state = {
@@ -102,7 +103,8 @@ class TableActionBar extends Component {
       isShowDeleteButton,
       showActionBar,
       isShowAddButton,
-      isShowCopyButton
+      isShowCopyButton,
+      onSearch
     } = this.props;
 
     const style = {
@@ -177,18 +179,23 @@ class TableActionBar extends Component {
             <Col sm={{ span: 18 }} xs={{ span: 24 }}></Col>
           )}
           <Col sm={{ span: 6 }} xs={{ span: 24 }} style={{ display: "flex" }}>
-            {textSearch ? (
-              <Search
-                name="search"
-                className="txtSearch"
-                placeholder="Search..."
-                onChange={e =>
-                  this.props.onFilter(e.target.value, e.target.name, "search")
-                }
-                style={{ width: "100%", position: 'relative', zIndex: 0 }}
-                {...searchOpition}
-              />
-            ) : null}
+            {
+              onSearch ?
+              textSearch ? (
+                <Search
+                  name="search"
+                  className="txtSearch"
+                  placeholder="Search..."
+                  onChange={e =>
+                    this.props.onFilter(e.target.value, e.target.name, "search")
+                  }
+                  style={{ width: "100%", position: 'relative', zIndex: 0 }}
+                  {...searchOpition}
+                />
+              ) : null
+              : null
+            }
+          
             {showFilter && data.length ? (
               <Tooltip title="Filter">
                 <Icon
