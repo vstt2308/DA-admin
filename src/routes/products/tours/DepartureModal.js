@@ -137,26 +137,7 @@ class DepartureModal extends Component {
                     <div>
                         <Form layout="inline" onSubmit={this.handleSubmit}>
                             <Form.Item>
-                                {/* <Select
-                                    value={this.state.selectedDestination}
-                                    showSearch
-                                    style={{ width: 200 }}
-                                    placeholder="Select a destination"
-                                    optionFilterProp="children"
-                                    onChange={(value) => this.onChangeDestination(value)}
-                                    filterOption={(input, option) =>
-                                        option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                    }
-                                >
-                                    <Option value=''>Select a destination</Option>
-                                    {
-                                        destionations.map((destionation, index) => {
-                                            return (
-                                                <Option key={index} value={destionation.id}>{destionation.title}</Option>
-                                            )
-                                        })
-                                    }
-                                </Select> */}
+                            
                                 <BaseSelect
                                     options={destionations}
                                     value={this.state.selectedDestination}
@@ -192,29 +173,14 @@ class DepartureModal extends Component {
                                     dataIndex: 'destination_txt',
                                     align: 'left'
                                 },
-                                // {
-                                //     title: 'Price',
-                                //     dataIndex: 'price',
-                                //     render: (text, record) => (
-                                //         <Input placeholder="Price" value={record.price} onChange={(e) => this.onChangeData(record.id, 'price', e.target.value)} />
-                                //     ),
-                                //     align: 'left'
-                                // },
-                                // {
-                                //     title: 'Single price',
-                                //     dataIndex: 'single_price',
-                                //     render: (text, record) => (
-                                //         <Input placeholder="Single price" value={record.single_price} onChange={(e) => this.onChangeData(record.id, 'single_price', e.target.value)} />
-                                //     ),
-                                //     align: 'left'
-                                // },
+                           
+                              
                                 {
                                     title: 'Actions',
                                     dataIndex: '',
                                     render: (text, record) => (
                                         <span>
-                                            {/* <Button size='small' type="primary">Edit</Button>
-                                            <Divider type="vertical" /> */}
+                                           
                                             <Button size='small' type="danger" onClick={() => this.onDelete(record.id)}>Delete</Button>
                                         </span>
                                     ),

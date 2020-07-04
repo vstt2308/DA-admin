@@ -209,12 +209,7 @@ class TourOrder extends Component {
         key: "unit_price",
         sorter: true,
       },
-      {
-        title: <IntlMessages id="order.qty" />,
-        dataIndex: "qty",
-        key: "qty",
-        sorter: true,
-      },
+    
       {
         title: <IntlMessages id="order.total" />,
         render: (record) => {
@@ -240,29 +235,7 @@ class TourOrder extends Component {
           );
         },
       },
-      {
-        title: <IntlMessages id="order.airline" />,
-        key: "airline",
-        render: (record) => record.airline_code + "-" + record.airline_class,
-      },
-      {
-        title: <IntlMessages id="global.created" />,
-        dataIndex: "created_at",
-        key: "created_at",
-        className: "center-column",
-        render: (text, record) => (
-          <React.Fragment>
-            <div>{moment(record.created_at).format("DD/MM/YYYY")}</div>
-            <div>{moment(record.created_at).format("HH:mm")}</div>
-          </React.Fragment>
-        ),
-      },
-      {
-        title: <IntlMessages id="global.id" />,
-        dataIndex: "id",
-        key: "id",
-        sorter: true,
-      },
+
     ];
 
     let tourName = tours.map((item) => {
@@ -293,36 +266,7 @@ class TourOrder extends Component {
           />
           <div className="row">
             <RctCollapsibleCard colClasses="col-12">
-              <Form layout="inline" onSubmit={this.handleSubmit}>
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                  <Form.Item>
-                    <DatePicker
-                      placeholder="Start date"
-                      onChange={(value) => this.onFilter("depart", value)}
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <BaseSelect
-                      showSearch
-                      options={tourName}
-                      defaultText="Select a tour"
-                      optionValue="id"
-                      onChange={(value) => this.onFilter("tour_id", value)}
-                      style={{ width: "200px" }}
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <BaseSelect
-                      showSearch
-                      options={desName}
-                      defaultText="Select departure city"
-                      optionValue="id"
-                      onChange={(value) => this.onFilter("departure_id", value)}
-                      style={{ width: "200px" }}
-                    />
-                  </Form.Item>
-                </div>
-              </Form>
+       
               <Table
                 rowSelection={{
                   selectedRowKeys,
@@ -340,7 +284,7 @@ class TourOrder extends Component {
                   pageSize: +paging.perpage,
                 }}
                 size="middle"
-                scroll={{ x: 1500 }}
+            
               />
             </RctCollapsibleCard>
           </div>

@@ -163,7 +163,7 @@ class Calendar extends Component {
         data.startdate = data.startdate.format("YYYY-MM-DD");
         data.enddate = data.enddate.format("YYYY-MM-DD");
         data.tour_id = parseInt(this.props.match.params.id);
-
+        data.seat = 30;
         this.props.addTourRates(data).then(() => {
           this.props.form.resetFields();
           this.setState({
@@ -410,31 +410,12 @@ class Calendar extends Component {
                       </Timeline.Item>
                       <Timeline.Item>
                         <b>
-                          <IntlMessages id="calendar.modal.seat" />:{" "}
-                        </b>
-                        {option.seat}
-                      </Timeline.Item>
-                      <Timeline.Item>
-                        <b>
-                          <IntlMessages id="calendar.modal.booked_seat" />:{" "}
-                        </b>
-                        {option.seated}
-                      </Timeline.Item>
-                      <Timeline.Item>
-                        <b>
                           <IntlMessages id="calendar.modal.price" />:{" "}
                         </b>
                         {option.price} $
                       </Timeline.Item>
                     </Timeline>
 
-                    <Button
-                      type="default"
-                      icon="copy"
-                      onClick={() => this.copyRate(option)}
-                    >
-                      <IntlMessages id="global.copy" />
-                    </Button>
                     <Button
                       type="danger"
                       onClick={() => this.removeRate(option.id)}
@@ -473,7 +454,7 @@ class Calendar extends Component {
             </Form.Item>
             <Form.Item label={<IntlMessages id="tour.days_of_week" />}>
               {getFieldDecorator("weekdays", {
-                // initialValue: currentRate ? (currentRate.months ? 1 : 0) : 0,
+           
                 rules: [
                   { required: true, message: "Please choose days of week!" }
                 ]
@@ -481,7 +462,7 @@ class Calendar extends Component {
             </Form.Item>
             <Form.Item label={<IntlMessages id="tour.months" />}>
               {getFieldDecorator("months", {
-                // initialValue: currentRate ? (currentRate.months ? 1 : 0) : 0,
+              
                 rules: [
                   {
                     required: false,
@@ -497,26 +478,7 @@ class Calendar extends Component {
                 />
               )}
             </Form.Item>
-            {/* <Row>
-                            <Col span={24}>
-                                <Form.Item label={<IntlMessages id="global.date" />}>
-                                    {
-                                        getFieldDecorator("date", {
-                                            // initialValue: currentTour ? (currentTour.featured ? 1 : 0) : 0
-                                            rules: [
-                                                { required: true, message: "Please choose date!" }
-                                            ],
-                                        })(
-                                            // <DatePicker placeholder="Select date" style={{ width: '100%' }} /> 
-                                            <DayPicker
-                                                selectedDays={currentRate.selectedDays}
-                                                onDayClick={this.handleDayClick}
-                                            />
-                                        )
-                                    }
-                                </Form.Item>
-                            </Col>
-                        </Row> */}
+        
             <Form.Item label={<IntlMessages id="tour.start_date" />}>
               {getFieldDecorator("startdate", {
                 initialValue: currentRate ? currentRate.startdate : "",
@@ -533,12 +495,7 @@ class Calendar extends Component {
                 ]
               })(<DatePicker />)}
             </Form.Item>
-            <Form.Item label={<IntlMessages id="global.seat" />}>
-              {getFieldDecorator("seat", {
-                initialValue: currentRate ? currentRate.seat : 0,
-                rules: [{ required: true, message: "Please fill out seat!" }]
-              })(<Input type="number" />)}
-            </Form.Item>
+         
             <Form.Item label={<IntlMessages id="global.price" />}>
               {getFieldDecorator("price", {
                 initialValue: currentRate ? currentRate.price : 0,
