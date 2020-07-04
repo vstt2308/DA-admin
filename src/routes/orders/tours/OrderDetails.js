@@ -136,9 +136,13 @@ class OrderDetails extends Component {
       });
   }
 
+  formatCurency(currency) {
+    const index = currency.indexOf(".");
+    return currency.slice(0, index );
+  }
   render() {
     const { onOrderClose, open, orderTour, detailOrderTour } = this.props;
-
+    const totalFormat = orderTour ? this.formatCurency(orderTour.total) : null;
     var { uploading, fileList } = this.state;
 
     const { TabPane } = Tabs;
@@ -174,13 +178,7 @@ class OrderDetails extends Component {
           return record.lastname;
         },
       },
-      {
-        title: <IntlMessages id="order.passenger.country" />,
-        key: "country",
-        render: (record) => {
-          return record.country_txt;
-        },
-      },
+   
       {
         title: <IntlMessages id="order.passenger.age" />,
         key: "age",
@@ -188,18 +186,7 @@ class OrderDetails extends Component {
           return moment().diff(moment(record.birthday), "year");
         },
       },
-      {
-        render: (record) => {
-          return (
-            <span
-              style={{ color: "blue", cursor: "pointer" }}
-              onClick={() => this.onEditOrderPassenger(record)}
-            >
-              <IntlMessages id="global.edit" />
-            </span>
-          );
-        },
-      },
+   
     ];
 
     return (
@@ -215,22 +202,6 @@ class OrderDetails extends Component {
         >
           <Row>
             <Col span={24} style={{ textAlign: "right", marginBottom: "20px" }}>
-              <Button
-                type="primary"
-                style={{ marginLeft: 8 }}
-                htmlType="submit"
-                loading={this.props.loading}
-              >
-                <IntlMessages id="order.send" />
-              </Button>
-              <Button
-                type="primary"
-                style={{ marginLeft: 8 }}
-                htmlType="submit"
-                loading={this.props.loading}
-              >
-                <IntlMessages id="order.print" />
-              </Button>
               <Button type="default" onClick={() => this.props.onOrderClose()}>
                 <IntlMessages id="global.cancel" />
               </Button>
@@ -315,11 +286,23 @@ class OrderDetails extends Component {
                   <Row style={this.cssRow()}>
                     <Col span={7}>
                       <p>
-                        <IntlMessages id="order.qty" />:
+                        <IntlMessages id="global.status" />:
                       </p>
                     </Col>
                     <Col span={17}>
-                      <p>{orderTour ? orderTour.qty : ""}</p>
+                      {orderTour ? (
+                        orderTour.status === "PENDING" ? (
+                          <Tag style={{ marginTop: "0" }} color="red">
+                            {orderTour.status}
+                          </Tag>
+                        ) : (
+                          <Tag style={{ marginTop: "0" }} color="green">
+                            {orderTour.status}
+                          </Tag>
+                        )
+                      ) : (
+                        ""
+                      )}
                     </Col>
                   </Row>
                 </Col>
@@ -345,30 +328,13 @@ class OrderDetails extends Component {
                       </p>
                     </Col>
                     <Col span={17}>
-                      <p>{orderTour ? orderTour.total : ""}</p>
+                      <p>{orderTour ? totalFormat : ""}</p>
                     </Col>
                   </Row>
                 </Col>
               </Row>
               <Row>
-                <Col span={12}>
-                  <Row style={this.cssRow()}>
-                    <Col span={7}>
-                      <p>
-                        <IntlMessages id="order.created_at" />:
-                      </p>
-                    </Col>
-                    <Col span={17}>
-                      <p>
-                        {orderTour
-                          ? moment(orderTour.created_at).format(
-                              "DD/MM/YYYY HH:mm"
-                            )
-                          : ""}
-                      </p>
-                    </Col>
-                  </Row>
-                </Col>
+            
                 <Col span={12}>
                   <Row style={this.cssRow()}>
                     <Col span={7}>
@@ -383,48 +349,8 @@ class OrderDetails extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col span={12}>
-                  <Row style={this.cssRow()}>
-                    <Col span={7}>
-                      <p>
-                        <IntlMessages id="global.status" />:
-                      </p>
-                    </Col>
-                    <Col span={17}>
-                      {orderTour ? (
-                        orderTour.status === "PENDING" ? (
-                          <Tag style={{ marginTop: "0" }} color="red">
-                            {orderTour.status}
-                          </Tag>
-                        ) : (
-                          <Tag style={{ marginTop: "0" }} color="green">
-                            {orderTour.status}
-                          </Tag>
-                        )
-                      ) : (
-                        ""
-                      )}
-                    </Col>
-                  </Row>
-                </Col>
-                <Col span={12}>
-                  <Row style={this.cssRow()}>
-                    <Col span={7}>
-                      <p>
-                        <IntlMessages id="order.airline" />:
-                      </p>
-                    </Col>
-                    <Col span={17}>
-                      <p>
-                        {orderTour
-                          ? orderTour.airline_code +
-                            "-" +
-                            orderTour.airline_class
-                          : ""}
-                      </p>
-                    </Col>
-                  </Row>
-                </Col>
+             
+              
               </Row>
             </TabPane>
             <TabPane tab={<IntlMessages id="order.passenger" />} key="2">
@@ -445,37 +371,7 @@ class OrderDetails extends Component {
                 </Col>
               </Row>
             </TabPane>
-            <TabPane tab={<IntlMessages id="order.flight" />} key="3">
-              <div>
-                <b>Current Ticket: </b> {orderTour ? orderTour.ticket : ""}
-              </div>
-              <br />
-              <Search
-                placeholder="Enter PNR"
-                enterButton={<IntlMessages id="widgets.search" />}
-                onSearch={(value) => console.log(value)}
-              />
-              {/* <Divider orientation="left">or</Divider> */}
-              <Upload {...uploadProps}>
-                <Button>
-                  <Icon type="upload" />{" "}
-                  <IntlMessages id="fileManager.selectfile" />
-                </Button>
-              </Upload>
-              <Button
-                type="primary"
-                onClick={() => this.handleUpload()}
-                // disabled={fileList}
-                loading={uploading}
-                style={{ marginTop: 16 }}
-              >
-                {uploading ? (
-                  "Uploading"
-                ) : (
-                  <IntlMessages id="fileManager.uploadfile" />
-                )}
-              </Button>
-            </TabPane>
+          
           </Tabs>
         </Modal>
         <PassengerForm

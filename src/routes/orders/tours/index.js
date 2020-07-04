@@ -214,7 +214,7 @@ class TourOrder extends Component {
         title: <IntlMessages id="order.total" />,
         render: (record) => {
           let checkDot = record.total.lastIndexOf(".");
-          return record.total.slice(0, checkDot + 3);
+          return record.total.slice(0, checkDot );
         },
         key: "total",
         sorter: true,
