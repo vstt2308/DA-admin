@@ -282,42 +282,8 @@ class ListAdmin extends Component {
         dataIndex: "company",
         key: "company"
       },
-      {
-        title: <IntlMessages id="global.created" />,
-        dataIndex: "created_at",
-        key: "created_at",
-        className: "center-column",
-        render: (text, record) => (
-          <React.Fragment>
-            <div>{moment(record.created_at).format("DD/MM/YYYY")}</div>
-            <div>{moment(record.created_at).format("HH:mm")}</div>
-          </React.Fragment>
-        )
-      },
-      {
-        title: <IntlMessages id="global.lastlogin" />,
-        dataIndex: "last_login",
-        key: "last_login",
-        className: "center-column",
-        render: (text, record) =>
-          record.last_login ? (
-            <React.Fragment>
-              <div>{moment(record.last_login).format("DD/MM/YYYY")}</div>
-              <div>{moment(record.last_login).format("HH:mm")}</div>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              <div>{moment(record.updated_at).format("DD/MM/YYYY")}</div>
-              <div>{moment(record.updated_at).format("HH:mm")}</div>
-            </React.Fragment>
-          )
-      },
-      {
-        title: <IntlMessages id="global.id" />,
-        dataIndex: "id",
-        key: "id",
-        sorter: true
-      }
+      
+ 
     ];
 
     const { selectedRowKeys } = this.state;
@@ -370,7 +336,7 @@ class ListAdmin extends Component {
                 }}
                 tableLayout="auto"
                 onChange={this.onChangTable}
-                scroll={{ x: 1500 }}
+               
               />
             </RctCollapsibleCard>
           </div>

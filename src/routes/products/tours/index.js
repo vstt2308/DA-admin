@@ -408,33 +408,7 @@ class ListTour extends Component {
           </b>
         ),
       },
-      // {
-      //   title: "Flight",
-      //   dataIndex: "",
-      //   render: (text, record) => (
-      //     <React.Fragment>
-      //       <Button
-      //         type="link"
-      //         style={{ color: "blue", margin: 0, padding: 0 }}
-      //         onClick={() =>
-      //           this.setState({ currentTour: record, isOpenFlightSearch: true })
-      //         }
-      //       >
-      //         Setup Flight
-      //       </Button>
-      //       <Divider type="vertical" />
-      //       <Button
-      //         type="link"
-      //         style={{ color: "blue", margin: 0, padding: 0 }}
-      //         onClick={() =>
-      //           this.setState({ currentTour: record, isOpenFlightList: true })
-      //         }
-      //       >
-      //         View Flights
-      //       </Button>
-      //     </React.Fragment>
-      //   ),
-      // },
+     
       {
         title: "Calendar",
         dataIndex: "",
@@ -471,14 +445,6 @@ class ListTour extends Component {
       { title: "United States", id: 1 },
     ];
 
-    // let desNameTour = destinationTour.map(item => {
-    //   if (item.title) {
-    //     return {
-    //       id: item.id,
-    //       title: item.title
-    //     };
-    //   }
-    // });
 
     return (
       <React.Fragment>
@@ -510,59 +476,7 @@ class ListTour extends Component {
                   )}
                 </TableActionBar>
               </div>
-              <div style={{ float: "right", lineHeight: "60px" }}>
-                <Icon
-                  type="filter"
-                  style={
-                    isOpenFilter
-                      ? { color: "blue", fontSize: 20 }
-                      : { color: "rgba(0,0,0,.25)", fontSize: 20 }
-                  }
-                  onClick={() => this.toggleFilter()}
-                />
-              </div>
-              {isOpenFilter ? (
-                <Form
-                  layout="inline"
-                  onSubmit={this.handleSubmit}
-                  style={{ display: "flex", justifyContent: "flex-end" }}
-                >
-                  <Form.Item>
-                    <BaseSelect
-                      showSearch
-                      options={desNameTour}
-                      defaultText="Select destination"
-                      optionValue="id"
-                      onChange={(value) =>
-                        this.onFilter("destination_id", value)
-                      }
-                      style={{ width: "200px" }}
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <BaseSelect
-                      showSearch
-                      options={daysOfTour}
-                      defaultText="Select duration"
-                      optionValue="title"
-                      onChange={(value) => this.onFilter("days", value)}
-                      style={{ width: "200px" }}
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <BaseSelect
-                      showSearch
-                      options={listCountry}
-                      defaultText="Select market"
-                      optionValue="id"
-                      onChange={(value) => this.onFilter("country_id", value)}
-                      style={{ width: "200px" }}
-                    />
-                  </Form.Item>
-                </Form>
-              ) : (
-                ""
-              )}
+        
               <Table
                 rowSelection={rowSelection}
                 columns={columns}

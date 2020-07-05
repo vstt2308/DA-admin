@@ -312,31 +312,6 @@ class ListRegistered extends Component {
         sorter: true
       },
 
-      // {
-      //   title: <IntlMessages id="global.country" />,
-      //   dataIndex: "country_code",
-      //   className: "center-column",
-      //   render: (text, record) => (
-      //     <React.Fragment>
-      //       <div>{record.country_code}</div>
-      //       <div>{record.ip_address}</div>
-      //     </React.Fragment>
-      //   ),
-      //   sorter: true
-      // },
-      {
-        title: <IntlMessages id="global.created" />,
-        dataIndex: "created_at",
-        key: "created_at",
-        className: "center-column",
-        render: (text, record) => (
-          <React.Fragment>
-            <div>{moment(record.created_at).format("DD/MM/YYYY")}</div>
-            <div>{moment(record.created_at).format("HH:mm")}</div>
-          </React.Fragment>
-        ),
-        sorter: true
-      },
   
     
     
